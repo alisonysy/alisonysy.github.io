@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>初识HTTP——请求和响应 | A.Amaze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="作业题目 HTTP, aka Hypertext Transfer Protocol, 意为超文本传输协议。何为超文本？个人理解是：从前一向的文字记录是一种有先后/时间/逻辑顺序的语言组织，而超文本则可以将不同的离散信息以创建者指定的方式非线性地储存和组织起来。通过超链接，读者可以随意跳离当前信息，到超链接指定的新信息。何为传输协议？当我们需要在万维网WWW浏览一个网页时，浏览器Browser作为">
+<meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识HTTP——请求和响应">
+<meta property="og:url" content="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/index.html">
+<meta property="og:site_name" content="A.Amaze">
+<meta property="og:description" content="作业题目 HTTP, aka Hypertext Transfer Protocol, 意为超文本传输协议。何为超文本？个人理解是：从前一向的文字记录是一种有先后/时间/逻辑顺序的语言组织，而超文本则可以将不同的离散信息以创建者指定的方式非线性地储存和组织起来。通过超链接，读者可以随意跳离当前信息，到超链接指定的新信息。何为传输协议？当我们需要在万维网WWW浏览一个网页时，浏览器Browser作为">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-11T08:10:23.431Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识HTTP——请求和响应">
+<meta name="twitter:description" content="作业题目 HTTP, aka Hypertext Transfer Protocol, 意为超文本传输协议。何为超文本？个人理解是：从前一向的文字记录是一种有先后/时间/逻辑顺序的语言组织，而超文本则可以将不同的离散信息以创建者指定的方式非线性地储存和组织起来。通过超链接，读者可以随意跳离当前信息，到超链接指定的新信息。何为传输协议？当我们需要在万维网WWW浏览一个网页时，浏览器Browser作为">
+  
+    <link rel="alternative" href="/atom.xml" title="A.Amaze" type="application/atom+xml">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1547108992542&amp;di=f545a66526903dbb60956e57d5091d2a&amp;imgtype=0&amp;src=http%3A%2F%2Fdimg03.c-ctrip.com%2Fimages%2Ffd%2Ftg%2Fg3%2FM09%2F90%2F9E%2FCggYGVbQI8qAbmnaAAPzXVvNR6w344.jpg">
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">A.Amaze</a>
+      </h1>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss  icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-初识HTTP——请求和响应" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/11/初识HTTP——请求和响应/" class="article-date">
+  <time datetime="2019-01-11T07:43:22.000Z" itemprop="datePublished">2019-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初识HTTP——请求和响应
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/alisonysy/blog-generator/blob/master/source/_images/try.png" title="homework" target="_blank" rel="noopener">作业题目</a></p>
+<p><strong>HTTP</strong>, aka Hypertext Transfer Protocol, 意为超文本传输协议。<br>何为<em>超文本</em>？个人理解是：从前一向的文字记录是一种有先后/时间/逻辑顺序的语言组织，而超文本则可以将不同的离散信息以创建者指定的方式<em>非线性</em>地储存和组织起来。通过超链接，读者可以随意跳离当前信息，到超链接指定的新信息。<br>何为<em>传输协议</em>？当我们需要在万维网WWW浏览一个网页时，浏览器Browser作为客户端Client，会通过一个唯一的地址URL(aka Uniform Resource Locator)向Web服务器Server发起请求。服务器接收到请求后，会对这个客户端作出一定的响应。为确保客户端和服务器之间交流顺畅，大家都能get到对方的意思，我们就需要HTTP协议来规定A代表xxx，而不是yyy，B代表zzz等等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjqrrjb4z0001ysulw9z76c6c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/10/Git入门-简单操作命令介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git入门-简单操作命令介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Alison<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
