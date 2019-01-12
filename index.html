@@ -131,13 +131,36 @@
 <li>&lt; colgroup &gt; ，可有0或多个</li>
 <li>&lt; thead &gt; 表头，可有可无</li>
 <li>以下2个元素其中1个：<br>   &lt; tbody &gt; 0或多个；<br>   &lt; tr &gt; 1或多个</li>
-<li>&lt; tfoot &gt; ，可有可无</li>
+<li>&lt; tfoot &gt; ，可有可无<br>用&lt; tr &gt;元素表示1行，&lt; td &gt;元素表示1个单元格内的数据。表格里的列数由任意一个&lt; tr &gt;元素里的&lt; td &gt;或&lt; th &gt;元素的<strong>最大数量</strong>决定。</li>
 </ol>
+<p>此处是一个栗子：</p>
+<table border="1"><br>  <caption>这是表格标题</caption><br>  <colgroup><br>    <col width="100"><br>    <col width="50"><br>  </colgroup><br>  <thead><br>    <tr><br>      <th>项目1</th><br>      <th>项目2</th><br>      <th>项目3</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>数据1</td><br>      <td>数据2</td><br>      <td>数据3</td><br>      <td>数据4(我是多了出来的)</td><br>    </tr><br>    <tr><br>      <td>数据5</td><br>      <td>数据6</td><br>      <td>数据7</td><br>    </tr><br>  </tbody><br>  <tfoot><br>    <tr><br>      <td>总数1</td><br>      <td>总数2</td><br>      <td>总数3</td><br>    </tr><br>  </tfoot><br></table>
+
+<h3 id="lt-caption-gt"><a href="#lt-caption-gt" class="headerlink" title="&lt; caption &gt;"></a>&lt; caption &gt;</h3><blockquote>
+<p>&lt; caption &gt; 标题文本 &lt; /caption &gt;</p>
+</blockquote>
+<h3 id="lt-colgroup-gt"><a href="#lt-colgroup-gt" class="headerlink" title="&lt; colgroup &gt;"></a>&lt; colgroup &gt;</h3><p>  &lt; colgroup &gt;元素内可设置每个列的宽度，和指定列的背景颜色（不推荐用HTML指定背景颜色）。<br>  设置指定列的宽度：</p>
+<blockquote>
+<p>&lt; colgroup &gt;<br>    &lt; col width=”100” &gt; 第一列宽度为100px<br>    &lt; col width=”50” &gt; 第二列宽度为50px<br>    当没有第三个/第n个&lt; col width &gt;时，会默认宽度为能容纳文本的宽度<br> &lt; /colgroup &gt;</p>
+</blockquote>
+<h3 id="lt-thead-gt"><a href="#lt-thead-gt" class="headerlink" title="&lt; thead &gt;"></a>&lt; thead &gt;</h3><p>  用&lt; thead &gt;元素表示这是表头。里面可包含&lt; tr &gt;、&lt; th &gt;或&lt; td &gt;。&lt; th &gt;元素会加粗文本，表示项目。</p>
+<blockquote>
+<p>&lt; thead &gt;<br>  &lt; tr &gt;<br>    &lt; th &gt; 项目1 &lt; /th &gt;<br>    &lt; th &gt; 项目2 &lt; /th &gt;<br>    &lt; th &gt; 项目3 &lt; /th &gt;<br>  &lt; /tr &gt;<br>&lt; /thead &gt;</p>
+</blockquote>
+<h3 id="lt-tbody-gt"><a href="#lt-tbody-gt" class="headerlink" title="&lt; tbody &gt;"></a>&lt; tbody &gt;</h3><blockquote>
+<p>&lt; tbody &gt;<br>  &lt; tr &gt;<br>    &lt; td &gt; 数据1 &lt; /td &gt;<br>    &lt; td &gt; 数据2 &lt; /td &gt;<br>    &lt; td &gt; 数据3 &lt; /td &gt;<br>    &lt; td &gt; 数据4 &lt; /td &gt;<br>  &lt; /tr &gt;<br>  &lt; tr &gt;<br>    &lt; td &gt; 数据5 &lt; /td &gt;<br>    &lt; td &gt; 数据6 &lt; /td &gt;<br>    &lt; td &gt; 数据7 &lt; /td &gt;<br>  &lt; /tr &gt;<br>&lt; /tbody &gt;</p>
+</blockquote>
+<p>  此处例子的&lt; tbody &gt; 部分有2行，其中第一行因为有4个单元格，导致整个表格多了1列。</p>
+<h3 id="lt-tfoot-gt"><a href="#lt-tfoot-gt" class="headerlink" title="&lt; tfoot &gt;"></a>&lt; tfoot &gt;</h3><p>  &lt; tfoot &gt;可用作为总计的行。</p>
+<blockquote>
+<p>&lt; tfoot &gt;<br>  &lt; tr &gt;<br>    &lt; td &gt; 总数1 &lt; /td &gt;<br>    &lt; td &gt; 总数2 &lt; /td &gt;<br>    &lt; td &gt; 总数3 &lt; /td &gt;<br>  &lt; /tr &gt;<br>&lt; /tfoot &gt;</p>
+</blockquote>
+<h3 id="lt-thead-gt-lt-tbody-gt-和-lt-tfoot-gt-的作用"><a href="#lt-thead-gt-lt-tbody-gt-和-lt-tfoot-gt-的作用" class="headerlink" title="&lt; thead &gt;, &lt; tbody &gt; 和&lt; tfoot &gt;的作用"></a>&lt; thead &gt;, &lt; tbody &gt; 和&lt; tfoot &gt;的作用</h3><p>  这3个元素在HTML表格里其实是可有可无，他们的作用是<em>按顺序</em>标记表格的内容，即无论编程时三个元素的顺序如何，在前端展示&lt; thead &gt;的内容总在&lt; tbody &gt;前，&lt; tbody &gt;的内容总在&lt; tfoot &gt;前。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjqtm2t2h0004mwulg1h6amls" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjqtn5rqr00046sula5xii3en" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
@@ -204,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjqtm2t2i0005mwulvuzuujlr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjqtn5rqs00056sultejijffk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
@@ -280,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjqtm2t290001mwul91lwesgd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjqtn5rqj00016sulh92z0u5l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitIntro/">GitIntro</a></li></ul>
@@ -334,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjqtm2t1z0000mwulk7xcagkk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjqtn5rq900006sultus6c74e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/hello-world/" data-id="cjqtm2t2b0002mwul349bxpyt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/hello-world/" data-id="cjqtn5rql00026sul66obl27c" class="article-share-link">Share</a>
       
       
     </footer>
