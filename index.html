@@ -80,7 +80,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>  HTML的标签有很多，每个HTML文档都有的是&lt; html &gt;、&lt; head &gt;、&lt; body &gt;，最常用的包括&lt; div &gt;、&lt; span &gt;、&lt; a &gt;、&lt; ul &gt;/&lt; ol &gt;和&lt; li &gt;、&lt; table &gt;等。其中&lt; div &gt;和&lt; span &gt;是没有任何默认样式的，当HTML里只有&lt; div &gt;&lt; /div &gt;或&lt; span &gt;&lt; /span &gt;是没有任何显示的。这篇文章着重介绍&lt; a &gt;、&lt; ul &gt;/&lt; ol &gt;和&lt; li &gt;、&lt; table &gt;。</p>
-<h2 id="lt-a-gt"><a href="#lt-a-gt" class="headerlink" title="&lt; a &gt;"></a>&lt; a &gt;</h2><p>  a标签是anchor锚点的意思，它会创建一个连接到其他网页、文件、邮箱地址，甚至同一页面的其他地方的超链接。一个简单的&lt; a &gt;标签写法：<br>  <kbd> &lt; a href=”跳转的内容” &gt; 链接文本 &lt; /a &gt; </kbd><br>  <em>注意：</em>在&lt; a &gt;标签里不能内嵌另一个&lt; a &gt;标签。</p>
+<h2 id="lt-a-gt-超链接"><a href="#lt-a-gt-超链接" class="headerlink" title="&lt; a &gt; 超链接"></a>&lt; a &gt; 超链接</h2><p>  a标签是anchor锚点的意思，它会创建一个连接到其他网页、文件、邮箱地址，甚至同一页面的其他地方的超链接。一个简单的&lt; a &gt;标签写法：</p>
+<blockquote>
+<p>&lt; a href=”跳转的内容” &gt; 链接文本 &lt; /a &gt; </p>
+</blockquote>
+<p>  <em>注意：</em>在&lt; a &gt;标签里不能内嵌另一个&lt; a &gt;标签。</p>
 <h3 id="lt-a-gt-标签常见属性："><a href="#lt-a-gt-标签常见属性：" class="headerlink" title="&lt; a &gt;标签常见属性："></a>&lt; a &gt;标签常见属性：</h3><h4 id="1-href-”跳转的内容”"><a href="#1-href-”跳转的内容”" class="headerlink" title="1. href=”跳转的内容”"></a>1. href=”跳转的内容”</h4><p>  href后面可接：</p>
 <p>  <strong>1)URL</strong>：包括网页地址、ftp地址、邮箱等，当内容没有指定协议类型时，如</p>
 <blockquote>
@@ -108,11 +112,32 @@
 <p>  <strong>3)_parent</strong>：表示在当前页面的父框架中打开链接的内容，若没有父框架元素，则在当前窗口打开</p>
 <p>  <strong>3)_top</strong>：表示在当前页面的顶层窗口打开链接的内容，若只有父框架，则用父框架打开；若没有顶层窗口或父框架，则在当前页面打开</p>
 <h4 id="3-download"><a href="#3-download" class="headerlink" title="3. download"></a>3. download</h4><p>  在&lt; a &gt;标签中加入download会指示浏览器下载URL而不是导航到URL。</p>
+<hr>
+<h2 id="lt-ul-gt-lt-ol-gt-和-lt-li-gt-列表"><a href="#lt-ul-gt-lt-ol-gt-和-lt-li-gt-列表" class="headerlink" title="&lt; ul &gt;/&lt; ol &gt;和&lt; li &gt; 列表"></a>&lt; ul &gt;/&lt; ol &gt;和&lt; li &gt; 列表</h2><p>  当我们需要<em>列表</em>时，我们会选择：<br>  <ul><li>无序的列表，用&lt; ul &gt;和&lt; li &gt;表示</li></ul>    或是<br>  <ol><li>有序的列表，用&lt; ol &gt;和&lt; li &gt;表示</li></ol></p>
+<h3 id="无序列表的用法："><a href="#无序列表的用法：" class="headerlink" title="无序列表的用法："></a>无序列表的用法：</h3><blockquote>
+<p>&lt; ul &gt;<br>      &lt; li &gt; 文本 &lt; /li &gt;<br>      &lt; li &gt; 文本 &lt; /li &gt;<br>      ..<br>    &lt; /ul &gt;</p>
+</blockquote>
+<h3 id="有序列表的用法："><a href="#有序列表的用法：" class="headerlink" title="有序列表的用法："></a>有序列表的用法：</h3><blockquote>
+<p>&lt; ol &gt;<br>      &lt; li &gt; 文本 &lt; /li &gt;<br>      &lt; li &gt; 文本 &lt; /li &gt;<br>      ..<br>    &lt; /ol &gt;</p>
+</blockquote>
+<hr>
+<h2 id="lt-table-gt-表格"><a href="#lt-table-gt-表格" class="headerlink" title="&lt; table &gt; 表格"></a>&lt; table &gt; 表格</h2><p>  要在HTML里呈现表格，首先要写</p>
+<blockquote>
+<p>&lt; table &gt;<br>表格内容<br>&lt; /table &gt;</p>
+</blockquote>
+<p>  其中“表格内容”包含的元素有：</p>
+<ol>
+<li>&lt; caption &gt; 标题，可有可无</li>
+<li>&lt; colgroup &gt; ，可有0或多个</li>
+<li>&lt; thead &gt; 表头，可有可无</li>
+<li>以下2个元素其中1个：<br>   &lt; tbody &gt; 0或多个；<br>   &lt; tr &gt; 1或多个</li>
+<li>&lt; tfoot &gt; ，可有可无</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjqtli2k00004l4ulsr8yrld2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjqtm2t2h0004mwulg1h6amls" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
@@ -179,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjqtli2k20005l4ulo6ma6q7b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjqtm2t2i0005mwulvuzuujlr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
@@ -255,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjqtli2js0001l4ulzsogweuu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjqtm2t290001mwul91lwesgd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitIntro/">GitIntro</a></li></ul>
@@ -309,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjqtli2jj0000l4ulj7klydpr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjqtm2t1z0000mwulk7xcagkk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/hello-world/" data-id="cjqtli2ju0002l4ulemv0r1mu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/hello-world/" data-id="cjqtm2t2b0002mwul349bxpyt" class="article-share-link">Share</a>
       
       
     </footer>
