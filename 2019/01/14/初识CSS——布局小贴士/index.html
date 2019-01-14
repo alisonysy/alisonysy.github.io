@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>初识CSS——布局小贴士 | A.Amaze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="刚开始学HTML和CSS，看着貌似为数不多的元素和属性，以为很简单，但在真正要实现某种理想的效果时，却让人脑袋疼。特别是在如何利用不同的属性的元素（内联元素和块级元素）参与CSS z字形的文档流的规则，做出一版好看的布局。本文给大家几个布局的小技巧： 1. 左右布局2. 左中右布局3. 水平居中4. 垂直居中 左右布局  在HTML里，块级元素（block-level element）是另起一行，">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识CSS——布局小贴士">
+<meta property="og:url" content="http://yoursite.com/2019/01/14/初识CSS——布局小贴士/index.html">
+<meta property="og:site_name" content="A.Amaze">
+<meta property="og:description" content="刚开始学HTML和CSS，看着貌似为数不多的元素和属性，以为很简单，但在真正要实现某种理想的效果时，却让人脑袋疼。特别是在如何利用不同的属性的元素（内联元素和块级元素）参与CSS z字形的文档流的规则，做出一版好看的布局。本文给大家几个布局的小技巧： 1. 左右布局2. 左中右布局3. 水平居中4. 垂直居中 左右布局  在HTML里，块级元素（block-level element）是另起一行，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDdmYXY4dVdNZTFZSGovcEhIdDNOTnZrOGRQRjM4VlM1aE1BR0NYanNTOXdnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDblJ4eGJsSlJhSFJGa3o2ejNMbmxaTU01QWhTQ2UrMDhBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDazlKS1EwSnRCWnlGN2w4MU9JbjFSMk9lbWxJUjJzMjJ3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDanBZSERlODVoTjR1TDIvbUJIdEx0NmNwdDZLZXk2M25RPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUMGV5UmtQdGV2eEJvUDZIMzZoWDlxQzkyUEY3UWFJZWNnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUM3FsRk5BWFRDTDgyak12MlhQSGwyUDg1c0hyeldmZkJ3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUOFZrMVFUR0E0SEY3cFVTV0h5ejFISGhLVnVVdjJ6T2VRPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUNVVrTHpKTVR2Zjk5ZXQ2MEh0QTlmamR2NUJ6TVg0ejl3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvOGVscVpNL0ZsN2d3bU9hY3VjYTlXSGVmSmRBSThHTXdnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvL3pCbFJVTzZUeXU2WmdCeXpMRGsxV1pwNzdLZlVSYWR3PT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvNlpXcDBDRnN2bmZLbDhQakNBNnBuMnpFc3NmZUp1NGNBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KeGM4eUhNdUR3K3l1TEloVXpVc0ZDVGtiSVFZRlhPV0NRPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf3.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KNFVVK045SExZYzdEdHA5d29VRzZickIrakJwTXN6aG5RPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:image" content="http://imglf3.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KeFlnS01WR1l6UkRqemVVQ3FTZ1VnUXFocFFNaGFLeWNBPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+<meta property="og:updated_time" content="2019-01-14T16:26:53.501Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识CSS——布局小贴士">
+<meta name="twitter:description" content="刚开始学HTML和CSS，看着貌似为数不多的元素和属性，以为很简单，但在真正要实现某种理想的效果时，却让人脑袋疼。特别是在如何利用不同的属性的元素（内联元素和块级元素）参与CSS z字形的文档流的规则，做出一版好看的布局。本文给大家几个布局的小技巧： 1. 左右布局2. 左中右布局3. 水平居中4. 垂直居中 左右布局  在HTML里，块级元素（block-level element）是另起一行，">
+<meta name="twitter:image" content="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDdmYXY4dVdNZTFZSGovcEhIdDNOTnZrOGRQRjM4VlM1aE1BR0NYanNTOXdnPT0.png?imageView&thumbnail=500x0&quality=96&stripmeta=0">
+  
+    <link rel="alternative" href="/atom.xml" title="A.Amaze" type="application/atom+xml">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1547108992542&amp;di=f545a66526903dbb60956e57d5091d2a&amp;imgtype=0&amp;src=http%3A%2F%2Fdimg03.c-ctrip.com%2Fimages%2Ffd%2Ftg%2Fg3%2FM09%2F90%2F9E%2FCggYGVbQI8qAbmnaAAPzXVvNR6w344.jpg">
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">A.Amaze</a>
+      </h1>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss  icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-初识CSS——布局小贴士" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/14/初识CSS——布局小贴士/" class="article-date">
+  <time datetime="2019-01-14T14:38:18.000Z" itemprop="datePublished">2019-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初识CSS——布局小贴士
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>刚开始学HTML和CSS，看着貌似为数不多的元素和属性，以为很简单，但在真正要实现某种理想的效果时，却让人脑袋疼。特别是在如何利用不同的属性的元素（内联元素和块级元素）参与CSS z字形的文档流的规则，做出一版好看的布局。本文给大家几个布局的小技巧：</p>
+<h4 id="1-左右布局"><a href="#1-左右布局" class="headerlink" title="1. 左右布局"></a>1. 左右布局</h4><h4 id="2-左中右布局"><a href="#2-左中右布局" class="headerlink" title="2. 左中右布局"></a>2. 左中右布局</h4><h4 id="3-水平居中"><a href="#3-水平居中" class="headerlink" title="3. 水平居中"></a>3. 水平居中</h4><h4 id="4-垂直居中"><a href="#4-垂直居中" class="headerlink" title="4. 垂直居中"></a>4. 垂直居中</h4><hr>
+<h2 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h2><p>  在HTML里，块级元素（block-level element）是另起一行，并占据它父元素（或页面）整个宽度的，此为“块”状。<br>  <img src="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDdmYXY4dVdNZTFZSGovcEhIdDNOTnZrOGRQRjM4VlM1aE1BR0NYanNTOXdnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="块元素占据整个页面宽度" title="块元素占据页面宽度"><br>  因此，假设有2个块级元素：<br>  <strong>&lt; div id=”block1” &gt; &lt; /div &gt;</strong> 和 <strong>&lt; div id=”block2” &gt; &lt; /div &gt;</strong><br>  若要使2个块级元素成左右布局，可以：</p>
+<h3 id="利用float属性"><a href="#利用float属性" class="headerlink" title="利用float属性"></a>利用float属性</h3><p>  HTML:<br>  <img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDblJ4eGJsSlJhSFJGa3o2ejNMbmxaTU01QWhTQ2UrMDhBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="HTML代码-利用float把2个div设置成左右结构"></p>
+<p>  CSS:<br>  <img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDazlKS1EwSnRCWnlGN2w4MU9JbjFSMk9lbWxJUjJzMjJ3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS代码-利用float把2个div设置成左右结构"><br>  在写CSS的时候，在把第一个block设置成float:left之后，block1里面的p会自动增加margin，此时可以把block2的display设置成inline-block，再把宽度调整就可以显示左右布局：<br>  <img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDanBZSERlODVoTjR1TDIvbUJIdEx0NmNwdDZLZXk2M25RPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="float: left的左右布局"></p>
+<h2 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h2><p>  要实现左中右的布局，这里可以使用CSS里position的属性。<br>  假设有1个大的块级元素，3个小的块级元素：<br>  <strong>&lt; div id=”biggest” &gt; &lt; /div &gt;</strong><br>  <strong>&lt; div id=”block1” &gt; &lt; /div &gt;</strong><br>  <strong>&lt; div id=”block2” &gt; &lt; /div &gt;</strong><br>  <strong>&lt; div id=”block3” &gt; &lt; /div &gt;</strong><br>  此时</p>
+<h3 id="利用position-relative和-position-absolute"><a href="#利用position-relative和-position-absolute" class="headerlink" title="利用position: relative和 position: absolute"></a>利用position: relative和 position: absolute</h3><p>  HTML:<br>  <img src="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUMGV5UmtQdGV2eEJvUDZIMzZoWDlxQzkyUEY3UWFJZWNnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="HTML代码-利用position属性"></p>
+<p>  CSS:<br>  <img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUM3FsRk5BWFRDTDgyak12MlhQSGwyUDg1c0hyeldmZkJ3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS代码-利用position属性"><br>  <img src="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUOFZrMVFUR0E0SEY3cFVTV0h5ejFISGhLVnVVdjJ6T2VRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS代码续上-利用position属性"></p>
+<p>  此处利用每个block里面的width属性，可让3个block把整个div分割成3块。<br>  成果：<br>  <img src="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUNVVrTHpKTVR2Zjk5ZXQ2MEh0QTlmamR2NUJ6TVg0ejl3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="position的左中右布局"></p>
+<h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><h3 id="内联元素水平居中"><a href="#内联元素水平居中" class="headerlink" title="内联元素水平居中"></a>内联元素水平居中</h3><p>  内联元素的水平居中可只直接利用text-align的属性,<br>  在CSS里使该内联元素：</p>
+<blockquote>
+<p>  text-align: center;</p>
+</blockquote>
+<h3 id="块级元素水平居中"><a href="#块级元素水平居中" class="headerlink" title="块级元素水平居中"></a>块级元素水平居中</h3><p>  当一个有固定宽度（通常小于浏览器页面宽度）的块级元素需水平居中时，利用margin的属性使块级元素的左右margin设置为auto：</p>
+<blockquote>
+<p>  margin: 0 auto;</p>
+</blockquote>
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><h3 id="内联元素垂直居中"><a href="#内联元素垂直居中" class="headerlink" title="内联元素垂直居中"></a>内联元素垂直居中</h3><h4 id="单行垂直居中"><a href="#单行垂直居中" class="headerlink" title="单行垂直居中"></a>单行垂直居中</h4><p>假设有1个div，里面包含文本，要使div里的文本在div内垂直居中，可以在元素的上下添加相同像素的padding，也可以把div里的line-height和height设置成一样。<br>HTML:<br><img src="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvOGVscVpNL0ZsN2d3bU9hY3VjYTlXSGVmSmRBSThHTXdnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="HTML代码——内联单行垂直居中"></p>
+<p>CSS:<br><img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvL3pCbFJVTzZUeXU2WmdCeXpMRGsxV1pwNzdLZlVSYWR3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS代码——内联单行垂直居中"></p>
+<p>成果：<br><img src="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvNlpXcDBDRnN2bmZLbDhQakNBNnBuMnpFc3NmZUp1NGNBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="内联单行垂直居中"></p>
+<h3 id="块级元素垂直居中"><a href="#块级元素垂直居中" class="headerlink" title="块级元素垂直居中"></a>块级元素垂直居中</h3><p>假如已知块级元素的高度height，要使1个id为block1的块级元素在另一个id为block0的块级元素里垂直居中，同样可以使用position的属性：<br>HTML:<br><img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KeGM4eUhNdUR3K3l1TEloVXpVc0ZDVGtiSVFZRlhPV0NRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="HTML——块级元素垂直居中"></p>
+<p>CSS:<br><img src="http://imglf3.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KNFVVK045SExZYzdEdHA5d29VRzZickIrakJwTXN6aG5RPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS——块级元素垂直居中"></p>
+<p>成果：<br><img src="http://imglf3.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KeFlnS01WR1l6UkRqemVVQ3FTZ1VnUXFocFFNaGFLeWNBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="块级元素垂直居中"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/14/初识CSS——布局小贴士/" data-id="cjqwjle1x0001i4ul70pdwwze" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/12/初识HTML——常用标签介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">初识HTML——常用标签介绍.md</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Alison<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

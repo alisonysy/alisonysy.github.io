@@ -57,6 +57,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-初识CSS——布局小贴士" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/14/初识CSS——布局小贴士/" class="article-date">
+  <time datetime="2019-01-14T14:38:18.000Z" itemprop="datePublished">2019-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/14/初识CSS——布局小贴士/">初识CSS——布局小贴士</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>刚开始学HTML和CSS，看着貌似为数不多的元素和属性，以为很简单，但在真正要实现某种理想的效果时，却让人脑袋疼。特别是在如何利用不同的属性的元素（内联元素和块级元素）参与CSS z字形的文档流的规则，做出一版好看的布局。本文给大家几个布局的小技巧：</p>
+<h4 id="1-左右布局"><a href="#1-左右布局" class="headerlink" title="1. 左右布局"></a>1. 左右布局</h4><h4 id="2-左中右布局"><a href="#2-左中右布局" class="headerlink" title="2. 左中右布局"></a>2. 左中右布局</h4><h4 id="3-水平居中"><a href="#3-水平居中" class="headerlink" title="3. 水平居中"></a>3. 水平居中</h4><h4 id="4-垂直居中"><a href="#4-垂直居中" class="headerlink" title="4. 垂直居中"></a>4. 垂直居中</h4><hr>
+<h2 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h2><p>  在HTML里，块级元素（block-level element）是另起一行，并占据它父元素（或页面）整个宽度的，此为“块”状。<br>  <img src="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDdmYXY4dVdNZTFZSGovcEhIdDNOTnZrOGRQRjM4VlM1aE1BR0NYanNTOXdnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="块元素占据整个页面宽度" title="块元素占据页面宽度"><br>  因此，假设有2个块级元素：<br>  <strong>&lt; div id=”block1” &gt; &lt; /div &gt;</strong> 和 <strong>&lt; div id=”block2” &gt; &lt; /div &gt;</strong><br>  若要使2个块级元素成左右布局，可以：</p>
+<h3 id="利用float属性"><a href="#利用float属性" class="headerlink" title="利用float属性"></a>利用float属性</h3><p>  HTML:<br>  <img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDblJ4eGJsSlJhSFJGa3o2ejNMbmxaTU01QWhTQ2UrMDhBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="HTML代码-利用float把2个div设置成左右结构"></p>
+<p>  CSS:<br>  <img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDazlKS1EwSnRCWnlGN2w4MU9JbjFSMk9lbWxJUjJzMjJ3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS代码-利用float把2个div设置成左右结构"><br>  在写CSS的时候，在把第一个block设置成float:left之后，block1里面的p会自动增加margin，此时可以把block2的display设置成inline-block，再把宽度调整就可以显示左右布局：<br>  <img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDVrbGJ1Uk8zUFVDanBZSERlODVoTjR1TDIvbUJIdEx0NmNwdDZLZXk2M25RPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="float: left的左右布局"></p>
+<h2 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h2><p>  要实现左中右的布局，这里可以使用CSS里position的属性。<br>  假设有1个大的块级元素，3个小的块级元素：<br>  <strong>&lt; div id=”biggest” &gt; &lt; /div &gt;</strong><br>  <strong>&lt; div id=”block1” &gt; &lt; /div &gt;</strong><br>  <strong>&lt; div id=”block2” &gt; &lt; /div &gt;</strong><br>  <strong>&lt; div id=”block3” &gt; &lt; /div &gt;</strong><br>  此时</p>
+<h3 id="利用position-relative和-position-absolute"><a href="#利用position-relative和-position-absolute" class="headerlink" title="利用position: relative和 position: absolute"></a>利用position: relative和 position: absolute</h3><p>  HTML:<br>  <img src="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUMGV5UmtQdGV2eEJvUDZIMzZoWDlxQzkyUEY3UWFJZWNnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="HTML代码-利用position属性"></p>
+<p>  CSS:<br>  <img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUM3FsRk5BWFRDTDgyak12MlhQSGwyUDg1c0hyeldmZkJ3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS代码-利用position属性"><br>  <img src="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUOFZrMVFUR0E0SEY3cFVTV0h5ejFISGhLVnVVdjJ6T2VRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS代码续上-利用position属性"></p>
+<p>  此处利用每个block里面的width属性，可让3个block把整个div分割成3块。<br>  成果：<br>  <img src="http://imglf5.nosdn0.126.net/img/RW5xeGhweHowWDZPSFdURHo2cWdUNVVrTHpKTVR2Zjk5ZXQ2MEh0QTlmamR2NUJ6TVg0ejl3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="position的左中右布局"></p>
+<h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><h3 id="内联元素水平居中"><a href="#内联元素水平居中" class="headerlink" title="内联元素水平居中"></a>内联元素水平居中</h3><p>  内联元素的水平居中可只直接利用text-align的属性,<br>  在CSS里使该内联元素：</p>
+<blockquote>
+<p>  text-align: center;</p>
+</blockquote>
+<h3 id="块级元素水平居中"><a href="#块级元素水平居中" class="headerlink" title="块级元素水平居中"></a>块级元素水平居中</h3><p>  当一个有固定宽度（通常小于浏览器页面宽度）的块级元素需水平居中时，利用margin的属性使块级元素的左右margin设置为auto：</p>
+<blockquote>
+<p>  margin: 0 auto;</p>
+</blockquote>
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><h3 id="内联元素垂直居中"><a href="#内联元素垂直居中" class="headerlink" title="内联元素垂直居中"></a>内联元素垂直居中</h3><h4 id="单行垂直居中"><a href="#单行垂直居中" class="headerlink" title="单行垂直居中"></a>单行垂直居中</h4><p>假设有1个div，里面包含文本，要使div里的文本在div内垂直居中，可以在元素的上下添加相同像素的padding，也可以把div里的line-height和height设置成一样。<br>HTML:<br><img src="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvOGVscVpNL0ZsN2d3bU9hY3VjYTlXSGVmSmRBSThHTXdnPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="HTML代码——内联单行垂直居中"></p>
+<p>CSS:<br><img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvL3pCbFJVTzZUeXU2WmdCeXpMRGsxV1pwNzdLZlVSYWR3PT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS代码——内联单行垂直居中"></p>
+<p>成果：<br><img src="http://imglf6.nosdn0.126.net/img/RW5xeGhweHowWDcwUE9VUStPdUxvNlpXcDBDRnN2bmZLbDhQakNBNnBuMnpFc3NmZUp1NGNBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="内联单行垂直居中"></p>
+<h3 id="块级元素垂直居中"><a href="#块级元素垂直居中" class="headerlink" title="块级元素垂直居中"></a>块级元素垂直居中</h3><p>假如已知块级元素的高度height，要使1个id为block1的块级元素在另一个id为block0的块级元素里垂直居中，同样可以使用position的属性：<br>HTML:<br><img src="http://imglf4.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KeGM4eUhNdUR3K3l1TEloVXpVc0ZDVGtiSVFZRlhPV0NRPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="HTML——块级元素垂直居中"></p>
+<p>CSS:<br><img src="http://imglf3.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KNFVVK045SExZYzdEdHA5d29VRzZickIrakJwTXN6aG5RPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="CSS——块级元素垂直居中"></p>
+<p>成果：<br><img src="http://imglf3.nosdn0.126.net/img/RW5xeGhweHowWDRuclc0K0NqM29KeFlnS01WR1l6UkRqemVVQ3FTZ1VnUXFocFFNaGFLeWNBPT0.png?imageView&amp;thumbnail=500x0&amp;quality=96&amp;stripmeta=0" alt="块级元素垂直居中"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/14/初识CSS——布局小贴士/" data-id="cjqwjle1x0001i4ul70pdwwze" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-初识HTML——常用标签介绍" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/12/初识HTML——常用标签介绍/" class="article-date">
@@ -161,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjqtni6lu0004ckulgcgftz3e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjqwjle220003i4ulyjj6hvgb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
@@ -228,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjqtni6lv0005ckulxkuaaw51" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjqwjle230004i4ulusp4hny7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
@@ -304,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjqtni6lk0001ckulaji6ntzt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjqwjle1h0000i4ulok6fh761" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitIntro/">GitIntro</a></li></ul>
@@ -358,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjqtni6la0000ckul2xgv58w9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjqwjle2o000di4ulsyk1pj7i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,7 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/hello-world/" data-id="cjqtni6ln0002ckul1mu6lqgz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/hello-world/" data-id="cjqwjle2l000ci4uldy2ocnu0" class="article-share-link">Share</a>
       
       
     </footer>
