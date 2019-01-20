@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>JS的数据类型 | A.Amaze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript里有7种数据类型，分别是string(字符串)、number(数字)、boolean(布尔值)、undefined、null、symbol和object(对象)。Symbol是ES 6引入的，此处不论述，具体可以参考方应杭老师的知乎链接。 string 字符串字符串是0或多个排在一起的字符，通常放在’’或“”之中。字符串默认只能写1行，若需要写多行，可以使用‘+’连接运算符来连">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS的数据类型">
+<meta property="og:url" content="http://yoursite.com/2019/01/20/JS的数据类型/index.html">
+<meta property="og:site_name" content="A.Amaze">
+<meta property="og:description" content="JavaScript里有7种数据类型，分别是string(字符串)、number(数字)、boolean(布尔值)、undefined、null、symbol和object(对象)。Symbol是ES 6引入的，此处不论述，具体可以参考方应杭老师的知乎链接。 string 字符串字符串是0或多个排在一起的字符，通常放在’’或“”之中。字符串默认只能写1行，若需要写多行，可以使用‘+’连接运算符来连">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-20T12:47:09.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS的数据类型">
+<meta name="twitter:description" content="JavaScript里有7种数据类型，分别是string(字符串)、number(数字)、boolean(布尔值)、undefined、null、symbol和object(对象)。Symbol是ES 6引入的，此处不论述，具体可以参考方应杭老师的知乎链接。 string 字符串字符串是0或多个排在一起的字符，通常放在’’或“”之中。字符串默认只能写1行，若需要写多行，可以使用‘+’连接运算符来连">
+  
+    <link rel="alternative" href="/atom.xml" title="A.Amaze" type="application/atom+xml">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1547108992542&amp;di=f545a66526903dbb60956e57d5091d2a&amp;imgtype=0&amp;src=http%3A%2F%2Fdimg03.c-ctrip.com%2Fimages%2Ffd%2Ftg%2Fg3%2FM09%2F90%2F9E%2FCggYGVbQI8qAbmnaAAPzXVvNR6w344.jpg">
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">A.Amaze</a>
+      </h1>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss  icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JS的数据类型" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/JS的数据类型/" class="article-date">
+  <time datetime="2019-01-20T11:36:41.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS的数据类型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript里有<strong>7</strong>种数据类型，分别是string(字符串)、number(数字)、boolean(布尔值)、undefined、null、symbol和object(对象)。Symbol是ES 6引入的，此处不论述，具体可以参考方应杭老师的<a href="https://zhuanlan.zhihu.com/p/22652486" target="_blank" rel="noopener">知乎链接</a>。</p>
+<h2 id="string-字符串"><a href="#string-字符串" class="headerlink" title="string 字符串"></a>string 字符串</h2><p>字符串是0或多个排在一起的字符，通常放在’’或“”之中。<br>字符串默认只能写1行，若需要写多行，可以使用‘+’连接运算符来连接多个单行字符串，但连接后的字符串输出仍然是1行。若需要输出多行字符，可以使用 <strong>`</strong> 反引号包括多行的内容。如：</p>
+<blockquote>
+<p><code>第一行
+第二行
+第三行</code></p>
+</blockquote>
+<p>这时将输出：</p>
+<blockquote>
+<p>“ 第一行<br>第二行<br>第三行<br>“</p>
+</blockquote>
+<p>反斜杠 <strong>\</strong>在字符串里可以用来表示其他的特殊字符，例如：</p>
+<ul>
+<li>\0: null</li>
+<li>\b: 后退键</li>
+<li>\f: 换页符</li>
+<li>\n: 换行符</li>
+<li>\r: 回车键</li>
+<li>\t: 制表符</li>
+<li>\‘: 单引号</li>
+<li>\\: 反斜杠</li>
+</ul>
+<h2 id="number-数字"><a href="#number-数字" class="headerlink" title="number 数字"></a>number 数字</h2><p>数字在JavaScript内是以64位浮点数的形式储存的，这导致包含小数的运算时，结果可能不准确，如：<br>(<code>)
+(0.4 - 0.2) === (0.5 - 0.3) //false
+(</code>)</p>
+<p>JavaScript里允许的数值范围可以通过</p>
+<blockquote>
+<p>Number.MAX_VALUE //1.7976931348623157e+308<br>Number.MIN_VALUE //5e-324</p>
+</blockquote>
+<p>来确定。</p>
+<p>当一个数值小数点前的数字多于21位(不包含21位)的时候，JS里会自动将数值转为科学计数法：用<em>exx</em>或是<em>e+xx</em>来表示(xx为小数点从科学计数法转换为普通字面形式时应后退的位数)<br>当一个数值小数点后的0多于5个时，JS会自动将数值转为科学计数法：用<em>e-xx</em>来表示<br>(<code>)
+0.00000008 // 8e-8
+(</code>)</p>
+<p>当需要检测一个事物是否为number时，可使用typeof：<br>(<code>`</code>)<br>var s = 123;<br>var d = ‘123’;</p>
+<p>typeof s // number<br>typeof d // string<br>(<code>`</code>)</p>
+<h2 id="boolean-布尔值"><a href="#boolean-布尔值" class="headerlink" title="boolean 布尔值"></a>boolean 布尔值</h2><p>Boolean的值只有<strong>true</strong>(真)和<strong>false</strong>(假)两个。通过<em>前置逻辑运算符 !(Not)</em>、<em>相等运算符 ===、!==、==、!=</em>，和比较运算符<em>&gt;、&gt;=、&lt;、&lt;=</em> ，可在运算的地方返回布尔值。同时以下的值会返回false：</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>false </li>
+<li>0</li>
+<li>NaN</li>
+<li>‘’或”” (空字符串)</li>
+</ul>
+<h2 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h2><p>null在JS中表示“没有”，undefined在JS中表示未定义，两者之间十分相似。通过<kbd>==<kbd>来查询，两者是相等的。<br>(<code>)
+undefined == null //true
+(</code>)</kbd></kbd></p>
+<p>当一个变量被声明但未赋值时，该变量是undefined；而创建1个对象，但先不赋值时，惯例把该对象设为null。</p>
+<h2 id="object-对象"><a href="#object-对象" class="headerlink" title="object 对象"></a>object 对象</h2><p>对象是一组“键值对”(key-value)的无序的复合数据集合。里面的键名key是对象的属性property，若键名是数字，则会自动转换成字符串。<br>我们可以通过Object.keys()的方法查询一个对象的所有属性。<br>(<code>`</code>)<br>var a = {<br>  p1: ‘xxx’,<br>  p2: ‘yyy’<br>};</p>
+<p>Object.keys(a) //[‘p1’,’p2’]<br>(<code>`</code>)</p>
+<p>我们还可以通过历遍属性的方法for..in..循环来get到一个对象的键值对：<br>(<code>`</code>)<br>var a = {<br>  p1:’xxx’,<br>  p2:’yyy’,<br>  p3:’zzz’<br>}</p>
+<p>for (var key in a){<br>  console.log(key + ‘:’ + a[key]);<br>}<br>//p1:xxx<br>//p2:yyy<br>//p3:zzz<br>(<code>`</code>)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/JS的数据类型/" data-id="cjr4wewd700002wul5623h6r1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/14/初识CSS——布局小贴士/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">初识CSS——布局小贴士</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Alison<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
