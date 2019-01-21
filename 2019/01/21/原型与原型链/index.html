@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>原型与原型链 | A.Amaze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当我们创建一个变量时，无论是它是number, string, boolean，或是object，我们会发现有些属性是“与生俱来”的，我们并没有创建那些属性，但我们却可以调用，如toString(), valueOf()等等。 在JavaScript里，一切都可以被视为对象。原始类型的number, string, boolean都可以被构建为一个object。这些广义的对象，除了我们赋予的值外，">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型与原型链">
+<meta property="og:url" content="http://yoursite.com/2019/01/21/原型与原型链/index.html">
+<meta property="og:site_name" content="A.Amaze">
+<meta property="og:description" content="当我们创建一个变量时，无论是它是number, string, boolean，或是object，我们会发现有些属性是“与生俱来”的，我们并没有创建那些属性，但我们却可以调用，如toString(), valueOf()等等。 在JavaScript里，一切都可以被视为对象。原始类型的number, string, boolean都可以被构建为一个object。这些广义的对象，除了我们赋予的值外，">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-21T15:00:06.747Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原型与原型链">
+<meta name="twitter:description" content="当我们创建一个变量时，无论是它是number, string, boolean，或是object，我们会发现有些属性是“与生俱来”的，我们并没有创建那些属性，但我们却可以调用，如toString(), valueOf()等等。 在JavaScript里，一切都可以被视为对象。原始类型的number, string, boolean都可以被构建为一个object。这些广义的对象，除了我们赋予的值外，">
+  
+    <link rel="alternative" href="/atom.xml" title="A.Amaze" type="application/atom+xml">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1547108992542&amp;di=f545a66526903dbb60956e57d5091d2a&amp;imgtype=0&amp;src=http%3A%2F%2Fdimg03.c-ctrip.com%2Fimages%2Ffd%2Ftg%2Fg3%2FM09%2F90%2F9E%2FCggYGVbQI8qAbmnaAAPzXVvNR6w344.jpg">
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">A.Amaze</a>
+      </h1>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss  icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-原型与原型链" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/原型与原型链/" class="article-date">
+  <time datetime="2019-01-21T06:38:47.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      原型与原型链
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当我们创建一个变量时，无论是它是number, string, boolean，或是object，我们会发现有些属性是“与生俱来”的，我们并没有创建那些属性，但我们却可以调用，如toString(), valueOf()等等。</p>
+<p>在JavaScript里，一切都可以被视为对象。原始类型的number, string, boolean都可以被构建为一个object。这些广义的对象，除了我们赋予的值外，还有一些共有属性，这些各个对象都共有的属性，JS把这些共有属性都放在同一个对象里，需要的时候可从同一个地址调用。</p>
+<p>这些共有属性是从每一个广义对象的prototype objec(原型对象)里继承的。而ta的prototype又会有自身的prototype，若此时在一个广义对象里的prototype中没有找到调用的属性，浏览器就会往再上一层的prototype里面找，直至到达原型链的顶端，这时prototype指向的是Null。</p>
+<p>JavaScript是以原型为基础的，既然任何一样事物都可被当做一个对象，那么原型链的顶端自然是Object。</p>
+<h4 id="举一个栗子："><a href="#举一个栗子：" class="headerlink" title="举一个栗子："></a>举一个栗子：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var s1 = 1, s2 = new Number(1), o1 = &#123;name: &apos;xxx&apos;&#125;;</span><br></pre></td></tr></table></figure>
+<p>我们创建了一个数字变量s1，一个以对象形式储存的数字变量s2，和一个普通对象。<br>这时若我们要调用toString()的属性，这3个变量分别对应3种调用方式：<br>对s2来说，这个对象会有1的值，和从Number prototype里继承的共有属性——<br><img src="" alt="s2的属性"><br>对s1来说，浏览器会创建一个<strong>临时对象</strong>，这个临时对象与s2的对象相似，会有1的值，以及从Number prototype里继承的属性——<br><img src="" alt="s1、s2和o1的属性指向"><br>s1和s2都是数字，首先指向Number.prototype，里面的属性是数字共有的属性，但若需要调用如hasOwnProperty()的属性，它必须继续在它的上一层prototype里面找，即<strong>Object.prototype</strong>。</p>
+<p>因为我们在创建对象时：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 对象 = new 函数()</span><br></pre></td></tr></table></figure></p>
+<p>所以，对象的prototype(JS中写法是<strong>proto</strong>)应该指向函数的prototype。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.__proto__ === Function.prototype // true</span><br></pre></td></tr></table></figure></p>
+<p>而因为任何一切在JS中都可被当作一个对象，所以函数的prototype的再上一层prototype( __proto__ )指向的是对象的prototype。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.__proto__ === Object.prototype // true</span><br></pre></td></tr></table></figure></p>
+<p>而原型链的顶端是Object.prototype.__proto__，这时指向的是Null。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.__proto__;</span><br><span class="line">// null</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/原型与原型链/" data-id="cjr6gqnal0008x8ulp6yw2gx2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/21/JavaScript里的数据类型转换/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript里的数据类型转换</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Alison<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
