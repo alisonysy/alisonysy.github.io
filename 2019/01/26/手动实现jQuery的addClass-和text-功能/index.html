@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>手动实现jQuery的addClass()和text()功能 | A.Amaze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="很多时候，通过DOM操作HTML会很麻烦，特别是像遇到返回回车Text的nodeList。此时，我们可以用一个函数包装一段需要经常执行的代码，并通过简单易记的名字每次调用同一个函数。jQuery的出现，避免了无谓的重复，以下是初学jQuery时，用于理解其作用的题目：  补全下面???部分的代码：window.jQuery = ???window.$ = jQuery   var $div = $">
+<meta name="keywords" content="JavaScript jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手动实现jQuery的addClass()和text()功能">
+<meta property="og:url" content="http://yoursite.com/2019/01/26/手动实现jQuery的addClass-和text-功能/index.html">
+<meta property="og:site_name" content="A.Amaze">
+<meta property="og:description" content="很多时候，通过DOM操作HTML会很麻烦，特别是像遇到返回回车Text的nodeList。此时，我们可以用一个函数包装一段需要经常执行的代码，并通过简单易记的名字每次调用同一个函数。jQuery的出现，避免了无谓的重复，以下是初学jQuery时，用于理解其作用的题目：  补全下面???部分的代码：window.jQuery = ???window.$ = jQuery   var $div = $">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-26T14:38:48.932Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手动实现jQuery的addClass()和text()功能">
+<meta name="twitter:description" content="很多时候，通过DOM操作HTML会很麻烦，特别是像遇到返回回车Text的nodeList。此时，我们可以用一个函数包装一段需要经常执行的代码，并通过简单易记的名字每次调用同一个函数。jQuery的出现，避免了无谓的重复，以下是初学jQuery时，用于理解其作用的题目：  补全下面???部分的代码：window.jQuery = ???window.$ = jQuery   var $div = $">
+  
+    <link rel="alternative" href="/atom.xml" title="A.Amaze" type="application/atom+xml">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="overlay"></div>
+  <div id="header-outer" class="outer">
+    <div id="profile_img">
+      <img id="circle_img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1547108992542&amp;di=f545a66526903dbb60956e57d5091d2a&amp;imgtype=0&amp;src=http%3A%2F%2Fdimg03.c-ctrip.com%2Fimages%2Ffd%2Ftg%2Fg3%2FM09%2F90%2F9E%2FCggYGVbQI8qAbmnaAAPzXVvNR6w344.jpg">
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">A.Amaze</a>
+      </h1>
+      
+    </div>
+    <div id="header-menu">
+      <nav id="main-nav">
+        <ul>
+        
+          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
+        
+          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
+        
+          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
+        
+        
+          <li><a href="/atom.xml"><i class="fa fa-rss  icon-setting"></i></a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-手动实现jQuery的addClass-和text-功能" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/26/手动实现jQuery的addClass-和text-功能/" class="article-date">
+  <time datetime="2019-01-26T14:14:41.000Z" itemprop="datePublished">2019-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      手动实现jQuery的addClass()和text()功能
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很多时候，通过DOM操作HTML会很麻烦，特别是像遇到返回回车Text的nodeList。此时，我们可以用一个函数包装一段需要经常执行的代码，并通过简单易记的名字每次调用同一个函数。jQuery的出现，避免了无谓的重复，以下是初学jQuery时，用于理解其作用的题目：</p>
+<blockquote>
+<p>补全下面???部分的代码：<br>window.jQuery = ???<br>window.$ = jQuery</p>
+</blockquote>
+<blockquote>
+<p>var $div = $(‘div’)<br>$div.addClass(‘red’) // 可将所有 div 的 class 添加一个 red<br>$div.setText(‘hi’) // 可将所有 div 的 textContent 变为 hi</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = function (nodeOrSelector) &#123;</span><br><span class="line">    let nodes = &#123;&#125;</span><br><span class="line">    if (typeof nodeOrSelect === &apos;String&apos;) &#123; //先判断提供的参数是一个节点，还是CSS的选择器</span><br><span class="line">        let temp = document.querySelectorAll(nodeOrSelector); //若是选择器，需要调用querySelectorAll获取所有节点，此处返回的是一个伪数组</span><br><span class="line">        for (let i=0; i&lt;temp.length; i++)&#123;</span><br><span class="line">            nodes[i] = temp[i]</span><br><span class="line">            &#125;</span><br><span class="line">        nodes.length = temp.length;</span><br><span class="line">    &#125;else if (nodeOrSelector instanceof node)&#123; </span><br><span class="line">        nodes = &#123; //此处为一致性，需要把nodes包装为一个伪数组</span><br><span class="line">            0: nodeOrSelector,</span><br><span class="line">            length: 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.addClass = function(class)&#123;</span><br><span class="line">        class.forEach( (value) =&gt; &#123; //接收的参数是一个数组，用forEach历遍数组中需要添加的class</span><br><span class="line">            for (let i=0; i&lt;nodes.length; i++)&#123;</span><br><span class="line">                nodes[i].classList.add(value); //用classList为nodes里每一个节点加上class</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.setText= function (textValue)&#123;</span><br><span class="line">        for (let i=0;i&lt;nodes.length; i++)&#123;</span><br><span class="line">            nodes[i].textContent = textValue; //用textContent方法为节点添加文本</span><br><span class="line">        &#125;</span><br><span class="line">        return textValue;</span><br><span class="line">    &#125;</span><br><span class="line">    return nodes</span><br><span class="line">&#125;</span><br><span class="line">window.$ = jQuery //此处用$符号代替jQuery，此后用$表示jQuery的调用</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/26/手动实现jQuery的addClass-和text-功能/" data-id="cjrdl82ii000bo8uljf3r14xc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-jQuery/">JavaScript jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/23/DOM文档对象模型初探/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">DOM文档对象模型初探</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Alison<br>
+      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//imsky.github.io/holder/holder.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

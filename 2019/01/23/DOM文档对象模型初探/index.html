@@ -5,18 +5,20 @@
   
   <title>DOM文档对象模型初探 | A.Amaze</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DOM，即Document Object Model，中文翻译是文档对象模型。它是连接网页的一种接口，？不太懂？我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含对象，当我们需要拿">
+  <meta name="description" content="DOM，即Document Object Model，中文翻译是文档对象模型。它把文档映射成对象，是连接网页的一种接口，？不太懂？我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM文档对象模型初探">
 <meta property="og:url" content="http://yoursite.com/2019/01/23/DOM文档对象模型初探/index.html">
 <meta property="og:site_name" content="A.Amaze">
-<meta property="og:description" content="DOM，即Document Object Model，中文翻译是文档对象模型。它是连接网页的一种接口，？不太懂？我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含对象，当我们需要拿">
+<meta property="og:description" content="DOM，即Document Object Model，中文翻译是文档对象模型。它把文档映射成对象，是连接网页的一种接口，？不太懂？我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-24T10:15:14.306Z">
+<meta property="og:image" content="https://i.loli.net/2019/01/26/5c4bbe45837a9.png">
+<meta property="og:updated_time" content="2019-01-26T03:31:07.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM文档对象模型初探">
-<meta name="twitter:description" content="DOM，即Document Object Model，中文翻译是文档对象模型。它是连接网页的一种接口，？不太懂？我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含对象，当我们需要拿">
+<meta name="twitter:description" content="DOM，即Document Object Model，中文翻译是文档对象模型。它把文档映射成对象，是连接网页的一种接口，？不太懂？我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含">
+<meta name="twitter:image" content="https://i.loli.net/2019/01/26/5c4bbe45837a9.png">
   
     <link rel="alternative" href="/atom.xml" title="A.Amaze" type="application/atom+xml">
   
@@ -82,10 +84,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>DOM，即Document Object Model，中文翻译是文档对象模型。它是连接网页的一种接口，？不太懂？<br>我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含对象，当我们需要拿到、添加、更改、删除文档中的某些东西时，我们可以通过DOM来做到。<br><img src="" alt="What DOM is?"><br>那么，操作DOM的API主要有哪些类型？</p>
-<h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><p>Document类型的接口代表浏览器中的页面，相当于DOM树形结构的大门，通过Document API我们可以对HTML文档做进一步操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var webAddr = document.documentURI;</span><br><span class="line">console.log(webAddr);</span><br><span class="line"></span><br><span class="line">//这会打印出当前页面的网址</span><br></pre></td></tr></table></figure></p>
+        <p>DOM，即Document Object Model，中文翻译是文档对象模型。它把文档映射成对象，是连接网页的一种接口，？不太懂？<br>我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含对象，当我们需要拿到、添加、更改、删除文档中的某些东西时，我们可以通过DOM来做到。<br><img src="https://i.loli.net/2019/01/26/5c4bbe45837a9.png" alt="What DOM is?"><br>那么，操作DOM的API主要有哪些类型？</p>
+<h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><p>Document类型的接口代表浏览器中的页面，&lt; html &gt;的实例是由Document构造出来的，相当于DOM树形结构的大门，通过Document API我们可以对HTML文档做进一步操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var webAddr = document.documentURI;</span><br><span class="line">console.log(webAddr);</span><br><span class="line"></span><br><span class="line">//这会打印出当前页面的网址</span><br></pre></td></tr></table></figure></p>
 <h3 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h3><p>Element是文档对象继承的最广泛的基本类型。其中HTMLElement接口是HTML里元素的基本接口。</p>
-<p>常见的Element属性：<br><strong>Element.attributes</strong> 以NamedNodeMap对象的形式返回对应的HTML里元素的属性<br><strong>Element.classList</strong> 以DOMTokenList返回元素的类，后面可以添加.add或.remove来增加或删除类。<br><strong>Element.clientHeight</strong> 对于有CSS样式或内联布局盒子的元素来说，它返回一个元素的内部高度的数值(不包含margin、border、横向滚动条的高度)<br><strong>Element.clientTop</strong> 是元素的顶部边框的像素宽度。clientTop是offsetTop和client area top中间的部分。<br><strong>Element.id</strong> 可以查找某个元素的id，也可设置某个元素的id，还可通过getElementById()来获取一个HTML里的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var idString = element.id; // 查询某个元素的id</span><br><span class="line">element.id = idString; //对某个元素设置id</span><br></pre></td></tr></table></figure></p>
+<p>常见的Element属性：<br><strong>Element.attributes</strong> 以NamedNodeMap对象的形式返回对应的HTML里元素的属性<br><strong>Element.classList</strong> 以DOMTokenList返回元素的类，后面可以添加.add或.remove来增加或删除类。与className不同的是，classList返回的是一个伪数组，可以通过<em>Element</em>.classList[ x ]来获得其中一个类的值，而className返回的是包含所有值的字符串。<br><strong>Element.clientHeight</strong> 对于有CSS样式或内联布局盒子的元素来说，它返回一个元素的内部高度的数值(不包含margin、border、横向滚动条的高度)<br><strong>Element.clientTop</strong> 是元素的顶部边框的像素宽度。clientTop是offsetTop和client area top中间的部分。<br><strong>Element.id</strong> 可以查找某个元素的id，也可设置某个元素的id，还可通过getElementById()来获取一个HTML里的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var idString = element.id; // 查询某个元素的id</span><br><span class="line">element.id = idString; //对某个元素设置id</span><br></pre></td></tr></table></figure></p>
 <p><strong>Element.tagName</strong> 在HTML文档中会返回对应元素的标签名。</p>
 <p>常见的Element方法：<br><strong>Element.getAttribute()</strong> 返回一个指定元素的属性的值。<br><strong>Element.getBoundingClientRect()</strong> 返回一个元素的大小及其相对于视窗的位置。返回的值包括left, top, right, bottom, x, y ,width和height。<br><strong>Element.getElementsByClassName()</strong> 提供一个类的名称，然后返回指定类的元素。<br><strong>Element.querySelectorAll()</strong> 可以提供以CSS形式写的选择器，浏览器以NodeList的形式返回所有符合这个选择器的元素。与<strong>Element.querySelector()</strong>不同的是，querySelectorAll()会返回所有符合的元素，但querySelector()只返回符合的第一个元素。<br><strong>Element.scrollTo(x-coord, y-coord)</strong> 用于在一个元素内滚动到对应的位置。常使用window.scrollTo()使当前视窗滚动到指定地方。<br><strong>Element.toggleAttribute()</strong> 用于为指定元素设置一个添加/删除属性的开关，若该元素有相关属性，则删除它；若无，则添加。</p>
 <hr>
@@ -96,7 +98,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/23/DOM文档对象模型初探/" data-id="cjraiczhn0000loul4urjwfit" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/23/DOM文档对象模型初探/" data-id="cjrdl82gt0003o8ul645olnuo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -106,6 +108,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/01/26/手动实现jQuery的addClass-和text-功能/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          手动实现jQuery的addClass()和text()功能
+        
+      </div>
+    </a>
   
   
     <a href="/2019/01/21/原型与原型链/" id="article-nav-older" class="article-nav-link-wrap">

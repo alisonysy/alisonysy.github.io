@@ -57,6 +57,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-手动实现jQuery的addClass-和text-功能" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/26/手动实现jQuery的addClass-和text-功能/" class="article-date">
+  <time datetime="2019-01-26T14:14:41.000Z" itemprop="datePublished">2019-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/26/手动实现jQuery的addClass-和text-功能/">手动实现jQuery的addClass()和text()功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很多时候，通过DOM操作HTML会很麻烦，特别是像遇到返回回车Text的nodeList。此时，我们可以用一个函数包装一段需要经常执行的代码，并通过简单易记的名字每次调用同一个函数。jQuery的出现，避免了无谓的重复，以下是初学jQuery时，用于理解其作用的题目：</p>
+<blockquote>
+<p>补全下面???部分的代码：<br>window.jQuery = ???<br>window.$ = jQuery</p>
+</blockquote>
+<blockquote>
+<p>var $div = $(‘div’)<br>$div.addClass(‘red’) // 可将所有 div 的 class 添加一个 red<br>$div.setText(‘hi’) // 可将所有 div 的 textContent 变为 hi</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = function (nodeOrSelector) &#123;</span><br><span class="line">    let nodes = &#123;&#125;</span><br><span class="line">    if (typeof nodeOrSelect === &apos;String&apos;) &#123; //先判断提供的参数是一个节点，还是CSS的选择器</span><br><span class="line">        let temp = document.querySelectorAll(nodeOrSelector); //若是选择器，需要调用querySelectorAll获取所有节点，此处返回的是一个伪数组</span><br><span class="line">        for (let i=0; i&lt;temp.length; i++)&#123;</span><br><span class="line">            nodes[i] = temp[i]</span><br><span class="line">            &#125;</span><br><span class="line">        nodes.length = temp.length;</span><br><span class="line">    &#125;else if (nodeOrSelector instanceof node)&#123; </span><br><span class="line">        nodes = &#123; //此处为一致性，需要把nodes包装为一个伪数组</span><br><span class="line">            0: nodeOrSelector,</span><br><span class="line">            length: 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.addClass = function(class)&#123;</span><br><span class="line">        class.forEach( (value) =&gt; &#123; //接收的参数是一个数组，用forEach历遍数组中需要添加的class</span><br><span class="line">            for (let i=0; i&lt;nodes.length; i++)&#123;</span><br><span class="line">                nodes[i].classList.add(value); //用classList为nodes里每一个节点加上class</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.setText= function (textValue)&#123;</span><br><span class="line">        for (let i=0;i&lt;nodes.length; i++)&#123;</span><br><span class="line">            nodes[i].textContent = textValue; //用textContent方法为节点添加文本</span><br><span class="line">        &#125;</span><br><span class="line">        return textValue;</span><br><span class="line">    &#125;</span><br><span class="line">    return nodes</span><br><span class="line">&#125;</span><br><span class="line">window.$ = jQuery //此处用$符号代替jQuery，此后用$表示jQuery的调用</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/26/手动实现jQuery的addClass-和text-功能/" data-id="cjrdl82ii000bo8uljf3r14xc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-jQuery/">JavaScript jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-DOM文档对象模型初探" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/23/DOM文档对象模型初探/" class="article-date">
@@ -79,10 +125,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>DOM，即Document Object Model，中文翻译是文档对象模型。它是连接网页的一种接口，？不太懂？<br>我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含对象，当我们需要拿到、添加、更改、删除文档中的某些东西时，我们可以通过DOM来做到。<br><img src="" alt="What DOM is?"><br>那么，操作DOM的API主要有哪些类型？</p>
-<h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><p>Document类型的接口代表浏览器中的页面，相当于DOM树形结构的大门，通过Document API我们可以对HTML文档做进一步操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var webAddr = document.documentURI;</span><br><span class="line">console.log(webAddr);</span><br><span class="line"></span><br><span class="line">//这会打印出当前页面的网址</span><br></pre></td></tr></table></figure></p>
+        <p>DOM，即Document Object Model，中文翻译是文档对象模型。它把文档映射成对象，是连接网页的一种接口，？不太懂？<br>我们看到的每一个网页(web page)，是一个文档(document)。文档上面有很多不同的元素、内容、样式等等，那我们往文档上面添加JS时候，应该怎么找到对应的东西呢？这时DOM就派上用场，它把HTML文档组织成一个由节点(node)连接成的树形结构，每一个节点包含对象，当我们需要拿到、添加、更改、删除文档中的某些东西时，我们可以通过DOM来做到。<br><img src="https://i.loli.net/2019/01/26/5c4bbe45837a9.png" alt="What DOM is?"><br>那么，操作DOM的API主要有哪些类型？</p>
+<h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><p>Document类型的接口代表浏览器中的页面，&lt; html &gt;的实例是由Document构造出来的，相当于DOM树形结构的大门，通过Document API我们可以对HTML文档做进一步操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var webAddr = document.documentURI;</span><br><span class="line">console.log(webAddr);</span><br><span class="line"></span><br><span class="line">//这会打印出当前页面的网址</span><br></pre></td></tr></table></figure></p>
 <h3 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h3><p>Element是文档对象继承的最广泛的基本类型。其中HTMLElement接口是HTML里元素的基本接口。</p>
-<p>常见的Element属性：<br><strong>Element.attributes</strong> 以NamedNodeMap对象的形式返回对应的HTML里元素的属性<br><strong>Element.classList</strong> 以DOMTokenList返回元素的类，后面可以添加.add或.remove来增加或删除类。<br><strong>Element.clientHeight</strong> 对于有CSS样式或内联布局盒子的元素来说，它返回一个元素的内部高度的数值(不包含margin、border、横向滚动条的高度)<br><strong>Element.clientTop</strong> 是元素的顶部边框的像素宽度。clientTop是offsetTop和client area top中间的部分。<br><strong>Element.id</strong> 可以查找某个元素的id，也可设置某个元素的id，还可通过getElementById()来获取一个HTML里的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var idString = element.id; // 查询某个元素的id</span><br><span class="line">element.id = idString; //对某个元素设置id</span><br></pre></td></tr></table></figure></p>
+<p>常见的Element属性：<br><strong>Element.attributes</strong> 以NamedNodeMap对象的形式返回对应的HTML里元素的属性<br><strong>Element.classList</strong> 以DOMTokenList返回元素的类，后面可以添加.add或.remove来增加或删除类。与className不同的是，classList返回的是一个伪数组，可以通过<em>Element</em>.classList[ x ]来获得其中一个类的值，而className返回的是包含所有值的字符串。<br><strong>Element.clientHeight</strong> 对于有CSS样式或内联布局盒子的元素来说，它返回一个元素的内部高度的数值(不包含margin、border、横向滚动条的高度)<br><strong>Element.clientTop</strong> 是元素的顶部边框的像素宽度。clientTop是offsetTop和client area top中间的部分。<br><strong>Element.id</strong> 可以查找某个元素的id，也可设置某个元素的id，还可通过getElementById()来获取一个HTML里的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var idString = element.id; // 查询某个元素的id</span><br><span class="line">element.id = idString; //对某个元素设置id</span><br></pre></td></tr></table></figure></p>
 <p><strong>Element.tagName</strong> 在HTML文档中会返回对应元素的标签名。</p>
 <p>常见的Element方法：<br><strong>Element.getAttribute()</strong> 返回一个指定元素的属性的值。<br><strong>Element.getBoundingClientRect()</strong> 返回一个元素的大小及其相对于视窗的位置。返回的值包括left, top, right, bottom, x, y ,width和height。<br><strong>Element.getElementsByClassName()</strong> 提供一个类的名称，然后返回指定类的元素。<br><strong>Element.querySelectorAll()</strong> 可以提供以CSS形式写的选择器，浏览器以NodeList的形式返回所有符合这个选择器的元素。与<strong>Element.querySelector()</strong>不同的是，querySelectorAll()会返回所有符合的元素，但querySelector()只返回符合的第一个元素。<br><strong>Element.scrollTo(x-coord, y-coord)</strong> 用于在一个元素内滚动到对应的位置。常使用window.scrollTo()使当前视窗滚动到指定地方。<br><strong>Element.toggleAttribute()</strong> 用于为指定元素设置一个添加/删除属性的开关，若该元素有相关属性，则删除它；若无，则添加。</p>
 <hr>
@@ -93,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/23/DOM文档对象模型初探/" data-id="cjraiczhn0000loul4urjwfit" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/23/DOM文档对象模型初探/" data-id="cjrdl82gt0003o8ul645olnuo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -141,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/原型与原型链/" data-id="cjraicziq000lloultuse3f02" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/21/原型与原型链/" data-id="cjrdl82k2000qo8ulyy5kubff" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -199,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/JavaScript里的数据类型转换/" data-id="cjraiczi30005loulhmgxq47v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/21/JavaScript里的数据类型转换/" data-id="cjrdl82gu0004o8ul3udvtr6n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -280,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/JS的数据类型/" data-id="cjraiczi20004loulwldieth0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/JS的数据类型/" data-id="cjrdl82go0001o8ul6i8p31gf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -342,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/14/初识CSS——布局小贴士/" data-id="cjraiczi9000aloul9atkf6an" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/14/初识CSS——布局小贴士/" data-id="cjrdl82h20009o8ulp8zz9pce" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
@@ -458,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjraiczib000cloulkpta75me" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjrdl82iv000fo8ulu1ue46wu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
@@ -525,7 +571,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjraiczid000floulwukgvglf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjrdl82io000do8uleq8cjbju" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
@@ -601,7 +647,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjraiczi10003loulsna7mn23" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjrdl82g40000o8ul59xnui5g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitIntro/">GitIntro</a></li></ul>
@@ -655,7 +701,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjraiczhw0001loul7utidkjy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjrdl82gw0005o8ull2bto102" class="article-share-link">Share</a>
       
       
     </footer>
@@ -665,51 +711,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/hello-world/" class="article-date">
-  <time datetime="2019-01-10T02:09:35.281Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/hello-world/" data-id="cjraiczi60008loulmrf5x08l" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </section>
         
