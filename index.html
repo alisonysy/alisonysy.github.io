@@ -57,6 +57,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Cookie是块什么‘饼干’？" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/10/Cookie是块什么‘饼干’？/" class="article-date">
+  <time datetime="2019-02-10T05:31:08.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/10/Cookie是块什么‘饼干’？/">Cookie是块什么‘饼干’？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们浏览网页时，特别是当我们逛某宝、某东时，浏览器怎么把我们之前看过的商品给记下来，还能为我们推荐“猜你喜欢”呢？这就要靠HTTP的cookie。</p>
+<blockquote>
+<p>Cookie是服务器发送给用户浏览器的小块数据。</p>
+</blockquote>
+<p>浏览器会把这数据保存下来，等下一次，对相同的服务器发出请求时，把之前保存下来的数据一并发送，这样服务端就能知道 <strong>“你是谁”</strong>，<strong>你之前做过什么</strong>，以及<strong>根据你之前做的，我这次应该怎么做</strong>。</p>
+<h3 id="Cookie的用途"><a href="#Cookie的用途" class="headerlink" title="Cookie的用途"></a>Cookie的用途</h3><ol>
+<li>会话管理<br>登陆、购物车、游戏记录等等；</li>
+<li>个性化设置<br>用户个性化设置、主题等等；</li>
+<li>追踪<br>记录和分析用户行为。</li>
+</ol>
+<h3 id="创建cookie"><a href="#创建cookie" class="headerlink" title="创建cookie"></a>创建cookie</h3><p>当服务器接收到一个HTTP请求时，它可以在响应头设置一个Set-Cookie，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Set-Cookie里的值通常是用户通过浏览器提交的数据，或被浏览器记录的行为。<br>一个包含着Set-Cookie的响应头可以是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP/2.0 200 OK</span><br><span class="line">Content-type: text/html</span><br><span class="line">Set-Cookie: cookie_name=value_stored</span><br><span class="line"></span><br><span class="line">[response]</span><br></pre></td></tr></table></figure></p>
+<p>从服务端接收到Set-Cookie之后，浏览器会把它保存，等下次浏览器向同样的服务端发起请求时，会自动把这段cookie带上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/2.0</span><br><span class="line">Host: www.url.com</span><br><span class="line">Cookie: cookie_name=value_stored</span><br></pre></td></tr></table></figure></p>
+<h3 id="以用户自动登录为栗子"><a href="#以用户自动登录为栗子" class="headerlink" title="以用户自动登录为栗子"></a>以用户自动登录为栗子</h3><p><img src="https://i.loli.net/2019/02/10/5c5fbea65410b.png" alt="用户自动登录的cookie"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/10/Cookie是块什么‘饼干’？/" data-id="cjryi87150000lsulwkeorogi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-手动实现jQuery的addClass-和text-功能" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/26/手动实现jQuery的addClass-和text-功能/" class="article-date">
@@ -91,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/26/手动实现jQuery的addClass-和text-功能/" data-id="cjrdl82ii000bo8uljf3r14xc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/26/手动实现jQuery的addClass-和text-功能/" data-id="cjryi872y000llsullxvi8ki8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-jQuery/">JavaScript jQuery</a></li></ul>
@@ -131,15 +183,17 @@
 <p>常见的Element属性：<br><strong>Element.attributes</strong> 以NamedNodeMap对象的形式返回对应的HTML里元素的属性<br><strong>Element.classList</strong> 以DOMTokenList返回元素的类，后面可以添加.add或.remove来增加或删除类。与className不同的是，classList返回的是一个伪数组，可以通过<em>Element</em>.classList[ x ]来获得其中一个类的值，而className返回的是包含所有值的字符串。<br><strong>Element.clientHeight</strong> 对于有CSS样式或内联布局盒子的元素来说，它返回一个元素的内部高度的数值(不包含margin、border、横向滚动条的高度)<br><strong>Element.clientTop</strong> 是元素的顶部边框的像素宽度。clientTop是offsetTop和client area top中间的部分。<br><strong>Element.id</strong> 可以查找某个元素的id，也可设置某个元素的id，还可通过getElementById()来获取一个HTML里的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var idString = element.id; // 查询某个元素的id</span><br><span class="line">element.id = idString; //对某个元素设置id</span><br></pre></td></tr></table></figure></p>
 <p><strong>Element.tagName</strong> 在HTML文档中会返回对应元素的标签名。</p>
 <p>常见的Element方法：<br><strong>Element.getAttribute()</strong> 返回一个指定元素的属性的值。<br><strong>Element.getBoundingClientRect()</strong> 返回一个元素的大小及其相对于视窗的位置。返回的值包括left, top, right, bottom, x, y ,width和height。<br><strong>Element.getElementsByClassName()</strong> 提供一个类的名称，然后返回指定类的元素。<br><strong>Element.querySelectorAll()</strong> 可以提供以CSS形式写的选择器，浏览器以NodeList的形式返回所有符合这个选择器的元素。与<strong>Element.querySelector()</strong>不同的是，querySelectorAll()会返回所有符合的元素，但querySelector()只返回符合的第一个元素。<br><strong>Element.scrollTo(x-coord, y-coord)</strong> 用于在一个元素内滚动到对应的位置。常使用window.scrollTo()使当前视窗滚动到指定地方。<br><strong>Element.toggleAttribute()</strong> 用于为指定元素设置一个添加/删除属性的开关，若该元素有相关属性，则删除它；若无，则添加。</p>
-<hr>
-<p>EventTarget是由对象执行的、可以接收和监听事件的DOM接口。Element, Document, 和Window是最常见的事件对象。</p>
+<h3 id="NodeList"><a href="#NodeList" class="headerlink" title="NodeList"></a>NodeList</h3><p>一个NodeList是由通过诸如Node.childNodes属性或document.getElementByTagName()方法得到的所有节点组成的集合，注意，返回的集合不是数组，但可以使用数组的forEach()方法，而且可使用Array.from()将其转换成真正的数组。</p>
+<p>NodeList的属性：<br><strong>NodeList.length</strong> 是唯一的属性，当这个NodeList是动态的时候，当有新的节点加入NodeList时，NodeList.length会动态变化，否则，length在第一次获取后若没有重新获取，则保持第一次获取时的值。</p>
+<p>NodeList的方法：<br><strong>NodeList.item() / NodeList[ item ]</strong> 返回列表中的节点元素。<br><strong>NodeList.entries() / NodeList.keys() / NodeList.values()</strong> 均返回节点迭代器。</p>
+<h2 id="NodeList-forEach-对节点列表中每一个元素执行一个指定函数。"><a href="#NodeList-forEach-对节点列表中每一个元素执行一个指定函数。" class="headerlink" title="NodeList.forEach() 对节点列表中每一个元素执行一个指定函数。"></a><strong>NodeList.forEach()</strong> 对节点列表中每一个元素执行一个指定函数。</h2><p>EventTarget是由对象执行的、可以接收和监听事件的DOM接口。Element, Document, 和Window是最常见的事件对象。</p>
 <hr>
 <p>TBC</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/23/DOM文档对象模型初探/" data-id="cjrdl82gt0003o8ul645olnuo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/23/DOM文档对象模型初探/" data-id="cjryi871w0001lsulzuyxekxl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -187,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/原型与原型链/" data-id="cjrdl82k2000qo8ulyy5kubff" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/21/原型与原型链/" data-id="cjryi872o000glsulwbr5sp5e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -245,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/JavaScript里的数据类型转换/" data-id="cjrdl82gu0004o8ul3udvtr6n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/21/JavaScript里的数据类型转换/" data-id="cjryi87260005lsulv8mtvojk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -326,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/JS的数据类型/" data-id="cjrdl82go0001o8ul6i8p31gf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/JS的数据类型/" data-id="cjryi872v000ilsulgym4ouo0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -388,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/14/初识CSS——布局小贴士/" data-id="cjrdl82h20009o8ulp8zz9pce" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/14/初识CSS——布局小贴士/" data-id="cjryi872i000dlsulqz3tlsww" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
@@ -504,7 +558,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjrdl82iv000fo8ulu1ue46wu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/12/初识HTML——常用标签介绍/" data-id="cjryi872b0009lsulz8z2hih8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
@@ -571,7 +625,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjrdl82io000do8uleq8cjbju" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/11/初识HTTP——请求和响应/" data-id="cjryi872e000blsulv2vq9whe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
@@ -647,63 +701,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjrdl82g40000o8ul59xnui5g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/Git入门-简单操作命令介绍/" data-id="cjryi87220003lsulj6upchx8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitIntro/">GitIntro</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Git入门-init-add和commit-v介绍" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/10/Git入门-init-add和commit-v介绍/" class="article-date">
-  <time datetime="2019-01-10T05:58:10.000Z" itemprop="datePublished">2019-01-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/10/Git入门-init-add和commit-v介绍/">Git入门-init, add和commit -v介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Git是一个开源的分布式版本控制系统。本门主要介绍入门的git init, git add, git commit -v命令。</p>
-<h1 id="git-init用于创建Git仓库"><a href="#git-init用于创建Git仓库" class="headerlink" title="git init用于创建Git仓库"></a>git init用于<strong>创建Git仓库</strong></h1><p>在配置好Git后，无论是在本地使用Git，还是把本地的Git上传到GitHub，本地都需要先有Git仓库。<br>输入命令行：</p>
-<blockquote>
-<p>git init</p>
-</blockquote>
-<p>即可在当前目录中创建一个.git目录，.git目录是用于存放所有该项目数据的。<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1547115114265&amp;di=9de95c89898f651aca048cf82f0b45df&amp;imgtype=0&amp;src=http%3A%2F%2Fimage.mamicode.com%2Finfo%2F201901%2F20190109102740798912.png" alt="图片来源网络" title="git init screenshot"></p>
-<h1 id="git-add用于把文件或改动放到缓存"><a href="#git-add用于把文件或改动放到缓存" class="headerlink" title="git add用于把文件或改动放到缓存"></a>git add用于把文件或改动<strong>放到缓存</strong></h1><p>若已在仓库中新建了一个名为<em>new</em>的.txt文件，现需把<em>new.txt</em>方到缓存区。<br>输入命令行：</p>
-<blockquote>
-<p>git add <em>new.txt</em> (要放入缓存的文件名)</p>
-</blockquote>
-<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1547115277994&amp;di=6c6dd9ac71a1a16980cba2e9095a97d2&amp;imgtype=0&amp;src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F10550855-42c925e15b01d783.png" alt="图片来源网络" title="git add screenshot"></p>
-<h1 id="git-commit-v用于在提交前审阅改动"><a href="#git-commit-v用于在提交前审阅改动" class="headerlink" title="git commit -v用于在提交前审阅改动"></a>git commit -v用于在提交前审阅改动</h1><p>在命令行里输入：</p>
-<blockquote>
-<p>git commit -v</p>
-</blockquote>
-<p>会进入一编辑器，在确定提交的内容无误后，填写注释就可以。<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1547115577319&amp;di=cc695efed63cd9598211c42f69a923a3&amp;imgtype=0&amp;src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F15398122-f1725c383f9e5d71.png" alt="图片来源网络" title="git commit -v screenshot"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/Git入门-init-add和commit-v介绍/" data-id="cjrdl82gw0005o8ull2bto102" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
